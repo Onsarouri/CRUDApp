@@ -66,13 +66,6 @@ async def get_note_by_id(note_id):
 @app.patch("/note/{note_id}")
 async def update_note(note_id: str, data: NoteCreateModel):
     """Update by ID
-
-    Args:
-        note_id (str): ID of note to update
-        data (NoteCreateModel): data to update note
-
-    Returns:
-        dict: the updated note
     """
     note = await db.update(
         session, note_id, data={"title": data.title, "content": data.content}
